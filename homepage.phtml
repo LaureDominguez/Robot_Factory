@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Factory 2</title>
+</head>
+<body>
+    <form method="POST">
+        <label for="name">Choisissez le nom du robot</label>
+        <input type="text" name="nomRobot" placeholder="AB-1234"><br>
+        <label for="name">Voulez-vous choisir la morale du robot ?</label>
+        <select name="morales">
+            <option selected>---</option>
+            <option value="gentil">Gentil</option>
+            <option value="surprise">Surprise</option>
+            <option value="mechant">Méchant</option>
+        </select>
+        <button type="submit">Robot generator</button>
+    </form>
+
+
+
+
+    <?php
+    //var_dump($_POST);
+/*
+    $nomRobot;
+    function getName(){
+        if (isset($_POST["nomRobot"]) && !empty($_POST["nomRobot"])){
+            $nomRobot = $_POST["nomRobot"];
+            hi($nomRobot);
+            return $nomRobot;
+        } else {
+            $nomRobot = getRobotName();
+            hi($nomRobot);
+            return $nomRobot;
+        };
+    }
+    $nomRobot= getName();
+*/
+
+    if (isset($_POST["nomRobot"]) && !empty($_POST["nomRobot"])){
+        $nomRobot = $_POST["nomRobot"];
+        hi($nomRobot);
+    } else {
+        $nomRobot = getRobotName();
+        hi($nomRobot);
+    };
+
+    donnerDate();
+    random();
+    joke($nomRobot);
+    
+
+    if (isset($_POST["morales"]) && !empty($_POST["morales"])){
+        coffee($_POST["morales"]);
+    } else {
+        randCoffee();
+    };
+
+    game();
+    game2()
+    ?>
+
+</body>
+</html>
